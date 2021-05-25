@@ -71,7 +71,7 @@ function createCircle (x, y) {
   var p = {}
   p.x = x
   p.y = y
-  p.color = '#F00'
+  p.color = '#FFF'
   p.radius = 0.1
   p.alpha = 0.5
   p.lineWidth = 6
