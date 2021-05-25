@@ -43,11 +43,11 @@ function updateCoords (e) {
 
 function setParticuleDirection (p) {
   var angle = anime.random(0, 360) * Math.PI / 180
-  var value = anime.random(50, 180)
+  var value = 95
   var radius = [-1, 1][anime.random(0, 1)] * value
   return {
-    x: p.x + radius * Math.cos(angle),
-    y: p.y + radius * Math.sin(angle)
+    x: p.x + radius * (Math.cos(angle) - Math.sin(angle) * Math.cos(angle)),
+    y: p.y + radius * (Math.sin(angle) - Math.sin(angle) * Math.sin(angle))
   }
 }
 
