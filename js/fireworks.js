@@ -44,10 +44,10 @@ function updateCoords (e) {
 function setParticuleDirection (p) {
   var angle = anime.random(0, 360) * Math.PI / 180
   var value = 95
-  var radius = [0, 1][anime.random(0, 1)] * value
+  var radius = [-1, 1][anime.random(0, 1)] * value
   return {
-    x: p.x + radius * (Math.cos(angle) - Math.sin(angle) * Math.cos(angle)),
-    y: p.y + radius * (Math.sin(angle) - Math.sin(angle) * Math.sin(angle))
+    x: p.x + value * (1 + Math.sin(angle)) * Math.cos(angle),
+    y: p.y + value * (1 + Math.sin(angle)) * Math.sin(angle)
   }
 }
 
@@ -108,20 +108,20 @@ function animateParticules (x, y) {
       return p.endPos.y
     },
     radius: 0.1,
-    duration: anime.random(1200, 1800),
+    duration: anime.random(2000, 2800),
     easing: 'easeOutExpo',
     update: renderParticule
   })
     .add({
       targets: circle,
-      radius: anime.random(105, 121),
+      radius: anime.random(80, 160),
       lineWidth: 0,
       alpha: {
         value: 0,
         easing: 'linear',
         duration: anime.random(600, 800)
       },
-      duration: anime.random(1200, 1800),
+      duration: anime.random(2000, 2800),
       easing: 'easeOutExpo',
       update: renderParticule,
       offset: 0
